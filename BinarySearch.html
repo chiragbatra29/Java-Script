@@ -1,3 +1,4 @@
+<global> char=8</global>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +7,6 @@
 <body>
 <h1>Binary Search</h1>
 <p id="demo"></p>
-<p id="demo1"></p>
 <script>
 var arr = [1,5,7,18,25,36,39,48];
 document.getElementById("demo").innerHTML = arr;
@@ -30,8 +30,12 @@ document.getElementById("demo").innerHTML = arr;
   return -1;
 }
   function b(){
-    document.getElementById("demo1").innerHTML = binarySearch(arr, 7);
+
+    document.getElementById("demo").innerHTML = binarySearch(arr, num);
   }
-</script> <button onclick="b()">SEARCH</button>
+
+</script>
+<p>Enter Number:<input type="number" id="myNumber" value="0"></p>
+<button onclick="b()">Search</button>
 </body>
 </html>
