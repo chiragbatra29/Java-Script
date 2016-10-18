@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<h1>Binary Search</h1>
+<p id="demo"></p>
+<p id="demo1"></p>
+<script>
+var arr = [1,5,7,18,25,36,39,48];
+document.getElementById("demo").innerHTML = arr;
+
+  function binarySearch(array, key) {
+  var li = 0,
+   hi = array.length - 1,
+   mid,
+   element;
+
+  while (li <= hi) {
+      mid = Math.floor((li + hi) / 2);
+      element = array[mid];
+      if (element < key)
+          li = mid + 1;
+       else if (element > key)
+          hi = mid - 1;
+        else
+          return mid;
+  }
+  return -1;
+}
+  function b(){
+    document.getElementById("demo1").innerHTML = binarySearch(arr, 7);
+  }
+</script> <button onclick="b()">SEARCH</button>
+</body>
+</html>
