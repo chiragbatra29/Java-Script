@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Problem4</title>
+</head>
+<body>
+<h1>Addition & Multiplication</h1>
+<p>Enter Number to add in Array:<input type="number" id="num"
+value=""><button onclick="submit()">Enter</button></p>
+<button onclick="add()">ADD</button> <button onclick=
+"mul()">MULTIPLY</button>
+<script>
+array=[];
+var i=-1,Sum=0,Mul=1;
+function add(){
+  for(j=0;j<=i;j++){
+    Sum=Sum+ parseInt(array[j]);
+  }
+  document.write("Addition Result:"+Sum);
+}
+function mul(){
+  for(j=0;j<=i;j++){
+    Mul=Mul*array[j];
+  }
+  document.write("Multiplication Result:"+Mul);
+}
+function submit(){
+  i++;
+  array[i]=document.getElementById("num").value;
+  return array[i];
+}
+
+
+</script>
+</body>
+</html>
