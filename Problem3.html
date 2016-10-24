@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Problem3</title>
+</head>
+<body>
+<h1>Translation</h1>
+<p>String : "My Name is Chirag."</p>
+<p>Enter Character:<input type="string" id="Character"></p>
+<p id="demo"></p>
+<button onclick="a()">Translate</button>
+<script>
+str="";
+var array=[];
+  function substrings(str1){
+    var len=str1.length;
+    for (var x = 0, y=1; x < len; x++,y++)
+    {
+      array[x]=str1.substring(x, y);
+    }
+    for (var x = 0; x < len; x++){
+        if(array[x]=="."||array[x]==" "||array[x]=='a'||array[x]=='e'||array[x]=='i'||array[x]=='o'||array[x]=='u'||array[x]=='A'||array[x]=='E'||array[x]=='I'||array[x]=='O'||array[x]=='U'){
+          str=str+array[x];
+        }
+        else{
+          str=str+array[x]+"o"+array[x];
+        }
+    }
+return str;
+}
+function a(){
+  str="";
+  var str1=document.getElementById("Character").value;
+  document.getElementById("demo").innerHTML=substrings(str1);
+}
+
+</script>
+</body>
+</html>
