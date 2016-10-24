@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<h1>Check For a Vowel</h1>
+<p id="demo"></p>
+<p>Enter Character:<input type='char' id="Character"></p>
+<button onclick="a()">Check</button>
+<script>
+function find(ch){
+if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U'){
+alert("Vowel");
+document.write("True");
+}
+else{
+alert("Not a Vowel");
+document.write("False");
+}
+}
+function a(){
+var ch=document.getElementById("Character").value;
+document.getElementById("demo").innerHTML = find(ch);
+}
+
+</script>
+
+</body>
+</html>
