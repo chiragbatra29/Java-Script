@@ -6,26 +6,75 @@
 <body>
 <h1>Date Format</h1>
 <p id="demo"></p>
-<p id="demo1"></p>
-<p>Change of Standard Date Format to YYYY-MMM-DD</p>
+<p>Change of Standard Date Format</p>
+<p>Date Formats:</p>
+<ol>
+<li>DD-MM-YYYY : 01-01-2001</li>
+<li>MM-DD-YYYY : 01-01-2001</li>
+<li>YYYY-MM-DD : 2001-01-01</li>
+</ol>
+<ol start='4'>
+<li>DD-MMM-YYYY : 01-JAN-2001</li>
+<li>MMM-DD-YYYY : JAN-01-2001</li>
+<li>YYYY-MMM-DD : 2001-JAN-01</li>
+</ol>
+<ol start='7'>
+<li>DD-MMMM-YYYY : 01-January-2001</li>
+<li>MMMM-DD-YYYY : January-01-2001</li>
+<li>YYYY-MMMM-DD : 2001-January-01</li>
+</ol>
+<p>Enter Date Format No.<input type="number" id="inp"></p>
 <button onclick="a()">Convert Date</button>
+<p id="demo1"></p>
 <script>
 var date=new Date();
 document.getElementById("demo").innerHTML=date;
 var format = "YYYY-MM-DD";
 function a(){
-  document.getElementById("demo1").innerHTML=(dateConvert(date,format));
+  var format_No=document.getElementById("inp").value;
+  document.getElementById("demo1").innerHTML=dateConvert(date,format_No);
 }
 
 function dateConvert(dateobj,format){
   var year = dateobj.getFullYear();
-  var month = ("0"+dateobj.getMonth()).slice(-2);
+  var month = ("0"+(dateobj.getMonth()+1)).slice(-2);
   var date = ("0"+dateobj.getDate()).slice(-2);
   var day = dateobj.getDay();
   var months = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+  var Months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
   var dates = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
-  var converted_date = "";
-      converted_date = year + "-" + months[parseInt(month)] + "-" + date + "   " + dates[parseInt(day)];
+   converted_date = "";
+  switch (format) {
+    case "1":
+      converted_date = date + "-" + month + "-" +  year ;
+      break;
+    case "2":
+      converted_date = month + "-" + date + "-" + year ;
+      break;
+    case "3":
+      converted_date =  year + "-" + month + "-" + date ;
+      break;
+    case "4":
+      converted_date = date + "-" + months[parseInt(month)-1] + "-" + year;
+      break;
+    case "5":
+      converted_date = months[parseInt(month)-1] + "-" + date + "-" + year;
+      break;
+    case "6":
+      converted_date = year + "-" + months[parseInt(month)-1] + "-" + date;
+      break;
+    case "7":
+      converted_date = date + "-" + Months[parseInt(month)-1] + "-" + year;
+      break;
+    case "8":
+      converted_date = Months[parseInt(month)-1]+ "-" + date + "-" + year;
+      break;
+    case "9":
+      converted_date = year + "-" + Months[parseInt(month)-1] + "-" + date;
+      break;
+    default:
+      converted_date = date + "-" + months[parseInt(month)-1] + "-" + year + "   " + dates[parseInt(day)];
+  }
   return converted_date;
 }
 </script>
