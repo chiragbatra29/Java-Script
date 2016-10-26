@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Problem5</title>
+</head>
+<body>
+<h1>English Into Swedish</h1>
+<p id="demo1"></p>
+<p>Type here in English<input type="string" id="inp"></p>
+<button onclick="a()">Translate Into Swedish</button>
+<script>
+array=[];
+function submit(str){
+  var str1="";
+  str=str.toLowerCase();
+  array = str.split(" ");
+  for(i=0;i<array.length;i++){
+    if(array[i]=="merry")
+      str1  =str1 +"god"+" ";
+    if(array[i]=="christmas")
+      str1 = str1+ "jul"+" ";
+    if(array[i]=="and")
+      str1 = str1+ "och"+" ";
+    if(array[i]=="happy")
+      str1 = str1+ "gott"+" ";
+    if(array[i]=="new")
+      str1 = str1+ "nytt"+" ";
+    if(array[i]=="year")
+      str1 = str1+ "år" + " ";
+  }
+  return str1;
+}
+function a(){
+  str="";
+  var str1=document.getElementById("inp").value;
+  document.getElementById("demo1").innerHTML = submit(str1);
+}
+</script>
+</body>
+</html>

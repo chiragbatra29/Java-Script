@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Problem5</title>
+</head>
+<body>
+<h1>Date Format</h1>
+<p id="demo"></p>
+<p id="demo1"></p>
+<p>Change of Standard Date Format to YYYY-MM-DD</p>
+<button onclick="a()">Convert Date</button>
+<script>
+var date=new Date();
+document.getElementById("demo").innerHTML=date;
+var format = "YYYY-MM-DD";
+function a(){
+  document.getElementById("demo1").innerHTML=(dateConvert(date,format));
+}
+
+function dateConvert(dateobj,format){
+  var year = dateobj.getFullYear();
+  var month= ("0" + (dateobj.getMonth()+1)).slice(1);
+  var date = ("0" + dateobj.getDate()).slice(1);
+  var months = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+  var dates = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+  var converted_date = "";
+      converted_date = year + "-" + month + "-" + date;
+  return converted_date;
+}
+</script>
+</body>
+</html>
